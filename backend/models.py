@@ -2,9 +2,10 @@ import os
 from sqlalchemy import Column, String, Integer, Boolean, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
+from flask_migrate import Migrate
 
 database_name = 'full_project'
-database_path = "postgres://{}/{}".format('localhost:5432', database_name)
+database_path = "postgres://postgres:21092000@{}/{}".format('localhost:5432', database_name)
 
 db = SQLAlchemy()
 
@@ -14,7 +15,10 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
+    # db.create_all()
+    migrate = Migrate(app, db)
+
+
 
 
 class Job(db.Model):
@@ -27,16 +31,18 @@ class Job(db.Model):
     state = Column(String)
     imageBase64 = Column(String)
     is_active = Column(Boolean)
+    candidates = Column(db.ARRAY(db.String))
     is_remote = Column(Boolean)
-    company_id = Column(String, db.ForeignKey('Company.id'), nullable=False)
+    company_id = Column(Integer, db.ForeignKey('company.id'), nullable=False)
 
-    def __init__(self, title, description, city, state, imageBase64, state, imageBase64, is_active, is_remote, company_id):
+    def __init__(self, title, description, city, state, imageBase64, is_active, candidates, is_remote, company_id):
         self.title = title
         self.description = description
         self.city = city
         self.state = state
         self.imageBase64 = imageBase64
         self.is_active = is_active
+        self.candidates = candidates
         self.is_remote = is_remote
         self.company_id = company_id
 
@@ -55,6 +61,7 @@ class Job(db.Model):
         return {
             'id': self.id,
             'title': self.title,
+            'description': self.description,
             'city': self.city,
             'state': self.state,
             'imageBase64': self.imageBase64,
@@ -69,6 +76,7 @@ class Job(db.Model):
             'description': self.description,
             'city': self.city,
             'state': self.state,
+            'candidates': self.candidates,
             'imageBase64': self.imageBase64,
             'is_active': self.is_active,
             'is_remote': self.is_remote,
@@ -84,10 +92,10 @@ class Company(db.Model):
     imageBase64 = Column(String)
     state=Column(String)
     city=(String)
-    jobs = db.relationship('Job', backref='Company', lazy=True)
+    job = db.relationship('Job', backref='company', lazy=True)
 
     def __init__(self, name, description, imageBase64, state, city):
-        self.name: name
+        self.name = name
         self.description = description
         self.imageBase64 = imageBase64
         self.state = state
