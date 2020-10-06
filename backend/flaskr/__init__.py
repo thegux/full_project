@@ -18,6 +18,86 @@ def create_app(test_config=None):
                              'GET, POST, PATCH, DELETE, OPTIONS')
         return response
 
+
+    """
+    Company's section
+    """
+
+    @app.route('/companies')
+    def get_companies():
+        companies = Company.query.all()
+        company_response = [company.format() for company in companies]
+        return jsonify({
+            'message': 'success',
+            'status_code': 200,
+            'companies': company_response,
+        })
+    
+    @app.route('/company', methods=['POST'])
+    def create_company():
+        request_value = request.get_json()
+
+        if request_value is None:
+            abort(400)
+
+        company = Company(
+            request_value['name'],
+            request_value['description'],
+            request_value['imageBase64'],
+            request_value['state'],
+            request_value['city']
+        )
+        company.insert()
+
+        return jsonify({
+          'status_code': 200,
+          'company': company.format(),
+          'message': 'The company was successfully created',
+          'success': True,
+        })
+    
+    @app.route('/company/<int:company_id>', methods=['PATCH'])
+    def update_company(company_id):
+        company = Company.query.filter_by(id=company_id).one_or_none()
+        request_value = request.get_json()
+
+        company.name = request_value['name']
+        company.description = request_value['description']
+        company.city = request_value['city']
+        company.state = request_value['state']
+        company.imageBase64 = request_value['imageBase64']
+
+        company.update()
+
+        return jsonify({
+          'status_code': 200,
+          'company': company.format(),
+          'message': 'The Company was successfully edited',
+          'success': True,
+        })
+    
+    @app.route('/company/<int:company_id>', methods=['DELETE'])
+    def delete_company(company_id):
+        company = Company.query.filter_by(id=company_id).one_or_none()
+
+        if company is None: 
+            abort(404)
+
+        company.delete()
+
+        return jsonify({
+            'message': 'The Company was successfully deleted',
+            'status_code': 200,
+        })
+
+    
+
+
+
+    """
+        Job's section
+    """
+
     @app.route('/jobs')
     def get_jobs():
         jobs = Job.query.all()
@@ -139,55 +219,5 @@ def create_app(test_config=None):
     """
 
     #@app.route('/user')
-
-    @app.route('/companies')
-    def get_companies():
-        companies = Company.query.all()
-        company_response = [company.format() for company in companies]
-        return jsonify({
-            'message': 'success',
-            'status_code': 200,
-            'companies': company_response,
-        })
-    
-    @app.route('/company', methods=['POST'])
-    def create_company():
-        request_value = request.get_json()
-
-        if request_value is None:
-            abort(400)
-
-        company = Company(
-            request_value['name'],
-            request_value['description'],
-            request_value['imageBase64'],
-            request_value['state'],
-            request_value['city']
-        )
-        company.insert()
-
-        return jsonify({
-          'status_code': 200,
-          'company': company.format(),
-          'message': 'The company was successfully created',
-          'success': True,
-        })
-    
-    @app.route('/company/<int:company_id>', methods=['DELETE'])
-    def delete_company(company_id):
-        company = Company.query.filter_by(id=company_id).one_or_none()
-
-        if company is None: 
-            abort(404)
-
-        company.delete()
-
-        return jsonify({
-            'message': 'The Company was successfully deleted',
-            'status_code': 200,
-        })
-
-    
-
 
     return app
