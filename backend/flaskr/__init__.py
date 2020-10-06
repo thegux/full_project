@@ -64,11 +64,11 @@ def create_app(test_config=None):
         if job is None:
             abort(404)
         
-        job.candidates = job.candidates + {
+        job.candidates = job.candidates + [{
             'name': request_value['name'],
             'email': request_value['email'],
             'phone': request_value['phone'],
-        }
+        }]
 
         job.update()
         
