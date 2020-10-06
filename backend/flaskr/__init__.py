@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from models import setup_db, Job, Users, Company
+from models import setup_db, Job, Users, Company, Candidate
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -42,7 +42,6 @@ def create_app(test_config=None):
             request_value['state'],
             request_value['imageBase64'],
             request_value['is_active'],
-            request_value['candidates'],
             request_value['is_remote'],
             request_value['company_id']
         )
@@ -56,25 +55,26 @@ def create_app(test_config=None):
           'success': True,
         })
     
-    @app.route('/job/<int:job_id>/apply', methods=['PATCH'])
-    def apply_job(job_id):
+    @app.route('/job/<int:job_id>', methods=['PATCH'])
+    def update_job(job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
         request_value = request.get_json()
-        
-        if job is None:
-            abort(404)
-        
-        job.candidates = job.candidates + [{
-            'name': request_value['name'],
-            'email': request_value['email'],
-            'phone': request_value['phone'],
-        }]
+
+        job.title = request_value['title']
+        job.description = request_value['description']
+        job.city = request_value['city']
+        job.state = request_value['state']
+        job.imageBase64 = request_value['imageBase64']
+        job.is_active = request_value['is_active']
+        job.is_remote = request_value['is_remote']
 
         job.update()
-        
+
         return jsonify({
-            'message': 'success',
-            'status_code': 200,
+          'status_code': 200,
+          'job': job.format_long(),
+          'message': 'The job was successfully edited',
+          'success': True,
         })
 
     @app.route('/job/<int:job_id>', methods=['DELETE'])
@@ -91,14 +91,54 @@ def create_app(test_config=None):
         })
 
     """
+        Candidate's section
+    """
+    @app.route('/candidates')
+    def get_candidates():
+        candidates = Candidate.query.all()
+        candidates_response = [candidate.format() for candidate in candidates]
+
+        return jsonify({
+            'message': 'success',
+            'status_code': 200,
+            'candidates': candidates_response,
+        })
+
+    @app.route('/candidate/apply', methods=['POST'])
+    def apply_job():
+        request_value = request.get_json()
+        job_id = request_value['job_id']
+        company_id = request_value['company_id']
+    
+        job = Job.query.filter_by(id=job_id).one_or_none()
+        if job is None:
+            abort(404)
+        
+        company = Company.query.filter_by(id=company_id).one_or_none()
+        if company is None:
+            abort(404)
+        
+        candidate = Candidate(
+                        job_id,
+                        company_id,
+                        request_value['name'],
+                        request_value['email'],
+                        request_value['phone']
+                    )
+
+        candidate.insert()
+        
+        return jsonify({
+            'message': 'Your application was successfully sent.',
+            'status_code': 200,
+        })
+
+  
+    """
     User endpoint section
     """
 
     #@app.route('/user')
-
-
-
-
 
     @app.route('/companies')
     def get_companies():
