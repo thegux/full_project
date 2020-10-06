@@ -56,7 +56,7 @@ def create_app(test_config=None):
           'success': True,
         })
     
-    @app.route('/jobs/<int:job_id>/apply', methods=['PATCH'])
+    @app.route('/job/<int:job_id>/apply', methods=['PATCH'])
     def apply_job(job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
         request_value = request.get_json()
@@ -64,17 +64,41 @@ def create_app(test_config=None):
         if job is None:
             abort(404)
         
-        job.candidates = job.candidates + [{
+        job.candidates = job.candidates + {
             'name': request_value['name'],
             'email': request_value['email'],
             'phone': request_value['phone'],
-        }]
+        }
+
+        job.update()
         
         return jsonify({
             'message': 'success',
             'status_code': 200,
-            'companies': company_response,
         })
+
+    @app.route('/job/<int:job_id>', methods=['DELETE'])
+    def delete_job(job_id):
+        job = Job.query.filter_by(id=job_id).one_or_none()
+
+        if job is None: 
+            abort(404)
+        job.delete()
+
+        return jsonify({
+            'message': 'The Job was successfully deleted',
+            'status_code': 200,
+        })
+
+    """
+    User endpoint section
+    """
+
+    #@app.route('/user')
+
+
+
+
 
     @app.route('/companies')
     def get_companies():
@@ -109,7 +133,19 @@ def create_app(test_config=None):
           'success': True,
         })
     
+    @app.route('/company/<int:company_id>', methods=['DELETE'])
+    def delete_company(company_id):
+        company = Company.query.filter_by(id=company_id).one_or_none()
 
+        if company is None: 
+            abort(404)
+
+        company.delete()
+
+        return jsonify({
+            'message': 'The Company was successfully deleted',
+            'status_code': 200,
+        })
 
     
 
