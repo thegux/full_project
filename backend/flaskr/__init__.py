@@ -2,7 +2,8 @@ import os
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from models import setup_db, Job, Users, Company, Candidate
+from .database.models import setup_db, Job, Company, Candidate
+from .auth.auth import AuthError, requires_auth
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -214,3 +215,47 @@ def create_app(test_config=None):
         })
 
     return app
+
+    '''
+    Example error handling for unprocessable entity
+    '''
+    @app.errorhandler(400)
+    def bad_request(error):
+        return jsonify({
+                        "success": False, 
+                        "error": 400,
+                        "message": "bad request"
+                        }), 400
+
+    @app.errorhandler(422)
+    def unprocessable(error):
+        return jsonify({
+                        "success": False, 
+                        "error": 422,
+                        "message": "unprocessable"
+                        }), 422
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return jsonify({
+                        "success": False, 
+                        "error": 404,
+                        "message": "Not found."
+                        }), 404
+
+    @app.errorhandler(500)
+    def server_error(error):
+        return jsonify({
+                        "success": False, 
+                        "error": 500,
+                        "message": "Sorry, we couldn't handle your request."
+                        }), 500
+
+
+    @app.errorhandler(AuthError)
+    def auth_error(error):
+        return jsonify({
+                        "success": False, 
+                        "error": error.status_code,
+                        "message": error.error['description']
+                        }), error.status_code
