@@ -155,36 +155,4 @@ class Company(db.Model):
         }
 
 
-class Users(db.Model):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    email = Column(String)
-    role = Column(String)
-
-    def __init__(self, name, email, role):
-        self.name = name
-        self.email = email
-        self.role = role
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    def format(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'email': self.email,
-            'role': self.role
-        }
-
 

@@ -213,11 +213,4 @@ def create_app(test_config=None):
             'status_code': 200,
         })
 
-  
-    """
-    User endpoint section
-    """
-
-    #@app.route('/user')
-
     return app
