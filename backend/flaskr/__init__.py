@@ -35,7 +35,8 @@ def create_app(test_config=None):
         })
     
     @app.route('/company', methods=['POST'])
-    def create_company():
+    @requires_auth('create:companies')
+    def create_company(jwt):
         request_value = request.get_json()
 
         if request_value is None:
@@ -58,7 +59,8 @@ def create_app(test_config=None):
         })
     
     @app.route('/company/<int:company_id>', methods=['PATCH'])
-    def update_company(company_id):
+    @requires_auth('update:companies')
+    def update_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
         request_value = request.get_json()
 
@@ -78,7 +80,8 @@ def create_app(test_config=None):
         })
     
     @app.route('/company/<int:company_id>', methods=['DELETE'])
-    def delete_company(company_id):
+    @requires_auth('delete:companies')
+    def delete_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
 
         if company is None: 
@@ -110,7 +113,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/job', methods=['POST'])
-    def create_job():
+    @requires_auth('create:jobs')
+    def create_job(jwt):
         request_value = request.get_json()
 
         if request_value is None:
@@ -137,7 +141,8 @@ def create_app(test_config=None):
         })
     
     @app.route('/job/<int:job_id>', methods=['PATCH'])
-    def update_job(job_id):
+    @app.route('update:jobs')
+    def update_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
         request_value = request.get_json()
 
@@ -159,7 +164,8 @@ def create_app(test_config=None):
         })
 
     @app.route('/job/<int:job_id>', methods=['DELETE'])
-    def delete_job(job_id):
+    @requires_auth('delete:jobs')
+    def delete_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
 
         if job is None: 
@@ -175,7 +181,8 @@ def create_app(test_config=None):
         Candidate's section
     """
     @app.route('/candidates')
-    def get_candidates():
+    @requires_auth('get:candidates')
+    def get_candidates(jwt):
         candidates = Candidate.query.all()
         candidates_response = [candidate.format() for candidate in candidates]
 
@@ -184,6 +191,19 @@ def create_app(test_config=None):
             'status_code': 200,
             'candidates': candidates_response,
         })
+    
+    @app.route('/candidates/<int:job_id>')
+    @requires_auth('get:job_candidates')
+    def get_candidates_by_job(jwt, job_id):
+        candidates = Candidate.query.filter_by(job_id=job_id).all()
+        candidates_response = [candidate.format() for candidate in candidates]
+
+        return jsonify({
+            'message': 'success',
+            'status_code': 200,
+            'candidates': candidates_response,
+        })
+        
 
     @app.route('/candidate/apply', methods=['POST'])
     def apply_job():
