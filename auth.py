@@ -27,10 +27,7 @@ class AuthError(Exception):
 
 def get_token_auth_header():
     if 'Authorization' not in request.headers:
-        raise AuthError({
-            'code': 'User not allowed to perform this operation',
-            'description': 'Not Authorized.'
-        }, 401)
+        raise AuthError({'code': 'User not allowed to perform this operation', 'description': 'Not Authorized.'}, 401)
 
     auth_header = request.headers['Authorization']
     header_parts = auth_header.split(' ')

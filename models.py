@@ -75,7 +75,7 @@ class Job(db.Model):
     candidates = db.relationship('Candidate', backref='job', lazy=True)
     company_id = Column(Integer, db.ForeignKey('company.id'), nullable=False)
 
-    def __init__(self, id, title, description, city, state, imageBase64, is_active, is_remote, company_id):
+    def __init__(self, title, description, city, state, imageBase64, is_active, is_remote, company_id):
         self.title = title
         self.description = description
         self.city = city

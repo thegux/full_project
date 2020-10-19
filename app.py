@@ -38,7 +38,6 @@ def create_app(test_config=None):
     @requires_auth('create:companies')
     def create_company(jwt):
         request_value = request.get_json()
-
         if request_value is None:
             abort(400)
 
@@ -119,7 +118,7 @@ def create_app(test_config=None):
 
         if request_value is None:
             abort(400)
-
+ 
         job = Job(
             request_value['title'],
             request_value['description'],
@@ -274,6 +273,7 @@ def create_app(test_config=None):
 
     @app.errorhandler(AuthError)
     def auth_error(error):
+        print('aaaaaaaaaaaa')
         return jsonify({
                         "success": False, 
                         "error": error.status_code,
