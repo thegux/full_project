@@ -2,10 +2,11 @@ import os
 from sqlalchemy import Column, String, Integer, Boolean, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
-from flask_migrate import Migrate
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 
-database_name = 'full_project'
-database_path = "postgres://postgres:21092000@{}/{}".format('localhost:5432', database_name)
+database_name = 'fullprojectdb'
+database_path = "postgres://laaztsoyynpwon:3d5cfde9d226ca71bdd7d0606a240af0fa658f2041131337d9d29251d96fbaf2@ec2-52-71-153-228.compute-1.amazonaws.com:5432/d5g1hskqj6vbgf"
 
 db = SQLAlchemy()
 
@@ -17,22 +18,32 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
     # db.create_all()
     migrate = Migrate(app, db)
+    
+    manager = Manager(app)
+    manager.add_command('db', MigrateCommand)
 
-class Candidate(db.Model):
-    __tablename__ = 'candidate'
+
+
+
+
+class Company(db.Model):
+    __tablename__ = 'company'
+
     id = Column(Integer, primary_key=True)
-    job_id = Column(db.Integer, db.ForeignKey('job.id'), nullable=False)
-    company_id = Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
     name = Column(String)
-    email = Column(String)
-    phone = Column(String)
+    description = Column(String)
+    imageBase64 = Column(String)
+    state=Column(String)
+    city=(String)
+    job = db.relationship('Job', backref='company', lazy=True)
+    candidates = db.relationship('Candidate', backref='company', lazy=True)
 
-    def __init__(self, job_id, company_id, name, email, phone):
-        self.job_id = job_id
-        self.company_id = company_id
+    def __init__(self, name, description, imageBase64, state, city):
         self.name = name
-        self.email = email
-        self.phone = phone
+        self.description = description
+        self.imageBase64 = imageBase64
+        self.state = state
+        self.city = city
     
     def insert(self):
         db.session.add(self)
@@ -44,15 +55,16 @@ class Candidate(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-    
+
     def format(self):
         return {
             'id': self.id,
             'name': self.name,
-            'email': self.email,
-            'phone': self.phone
+            'description': self.description,
+            'imageBase64': self.imageBase64,
+            'state': self.state,
+            'city': self.city
         }
-
 
 class Job(db.Model):
     __tablename__ = 'job'
@@ -114,24 +126,22 @@ class Job(db.Model):
         }
 
 
-class Company(db.Model):
-    __tablename__ = 'company'
 
+class Candidate(db.Model):
+    __tablename__ = 'candidate'
     id = Column(Integer, primary_key=True)
+    job_id = Column(db.Integer, db.ForeignKey('job.id'), nullable=False)
+    company_id = Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
     name = Column(String)
-    description = Column(String)
-    imageBase64 = Column(String)
-    state=Column(String)
-    city=(String)
-    job = db.relationship('Job', backref='company', lazy=True)
-    candidates = db.relationship('Candidate', backref='company', lazy=True)
+    email = Column(String)
+    phone = Column(String)
 
-    def __init__(self, name, description, imageBase64, state, city):
+    def __init__(self, job_id, company_id, name, email, phone):
+        self.job_id = job_id
+        self.company_id = company_id
         self.name = name
-        self.description = description
-        self.imageBase64 = imageBase64
-        self.state = state
-        self.city = city
+        self.email = email
+        self.phone = phone
     
     def insert(self):
         db.session.add(self)
@@ -143,16 +153,11 @@ class Company(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-
+    
     def format(self):
         return {
             'id': self.id,
             'name': self.name,
-            'description': self.description,
-            'imageBase64': self.imageBase64,
-            'state': self.state,
-            'city': self.city
+            'email': self.email,
+            'phone': self.phone
         }
-
-
-

@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from .database.models import setup_db, Job, Company, Candidate
+from .database.models import Candidate, Company, Job, setup_db
 from .auth.auth import AuthError, requires_auth
 
 def create_app(test_config=None):
@@ -141,7 +141,7 @@ def create_app(test_config=None):
         })
     
     @app.route('/job/<int:job_id>', methods=['PATCH'])
-    @app.route('update:jobs')
+    @requires_auth('update:jobs')
     def update_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
         request_value = request.get_json()
