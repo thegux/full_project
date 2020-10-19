@@ -3,7 +3,7 @@ from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import Candidate, Company, Job, setup_db
-from .auth.auth import AuthError, requires_auth
+from auth import AuthError, requires_auth
 
 def create_app(test_config=None):
     app = Flask(__name__)
