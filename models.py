@@ -2,8 +2,6 @@ import os
 from sqlalchemy import Column, String, Integer, Boolean, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
 
 database_name = 'fullprojectdb'
 database_path = "postgres://laaztsoyynpwon:3d5cfde9d226ca71bdd7d0606a240af0fa658f2041131337d9d29251d96fbaf2@ec2-52-71-153-228.compute-1.amazonaws.com:5432/d5g1hskqj6vbgf"
@@ -16,11 +14,8 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    # db.create_all()
-    migrate = Migrate(app, db)
-    
-    manager = Manager(app)
-    manager.add_command('db', MigrateCommand)
+    db.create_all()
+
 
 
 
