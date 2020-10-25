@@ -1,5 +1,5 @@
 import json
-from flask import request, _request_ctx_stack
+from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
@@ -22,36 +22,34 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-# Auth Header
+def validate_auth_header(auth_header):
+    splitted_header = auth_header.split()
+    bearer_part = splitted_header[0]
+    valid_auth = True
+    if len(splitted_header) != 2:
+        valid_auth = False
+    if bearer_part.lower() != "bearer":
+        valid_auth = False
+    return valid_auth
 
 
-def get_token_auth_header():
-    if 'Authorization' not in request.headers:
-        raise AuthError({'code': 'User not allowed to perform this operation', 'description': 'Not Authorized.'}, 401)
-
-    auth_header = request.headers['Authorization']
-    header_parts = auth_header.split(' ')
-
-    if len(header_parts) != 2:
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token Format'}, 401)
-    elif header_parts[0].lower() != 'bearer':
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token Format'}, 401)
-
-    return header_parts[1]
-
-
-def check_permissions(permission, payload):
-    if 'permissions' not in payload:
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token'}, 400)
-
-    if permission not in payload['permissions']:
-        raise AuthError(
-            {'code': 'not permitted', 'description': 'Not permitted'}, 401)
-
-    return True
+def get_token():
+    headers = request.headers
+    if 'Authorization' in request.headers:
+        auth_header = headers['Authorization']
+        valid_header = validate_auth_header(auth_header)
+        if not valid_header:
+            print("INVALID")
+            raise AuthError({
+                'status': 401,
+                'message': 'Unauthorized'
+            }, status_code=401)
+        token = auth_header.split()[1]
+        return token
+    raise AuthError({
+        'status': 401,
+        'message': 'Unauthorized'
+    }, status_code=401)
 
 
 def verify_decode_jwt(token):
@@ -64,8 +62,22 @@ def verify_decode_jwt(token):
     if 'kid' not in unverified_header:
         raise AuthError({
             'code': 'invalid header',
-            'description': 'Authorization malformed.'
-        }, 401)
+            'description': 'Authorization malformed.',
+            'status': 401,
+            'message': 'invalid jwt token'
+        }, status_code=401)
+
+    public_keys_url = f' https://{AUTH0_DOMAIN}/.well-known/jwks.json'
+    try:
+        response = request.get(public_keys_url)
+        jwks = response.json() if response.status_code == 200 else None
+    except:
+        raise AuthError({
+            'code': 'invalid header',
+            'description': 'Not Authorized.',
+            'status': 401,
+            'message': 'invalid jwt token'
+        }, status_code=401)
 
     for key in jwks['keys']:
         if key['kid'] == unverified_header['kid']:
@@ -108,11 +120,21 @@ def verify_decode_jwt(token):
     raise Exception('Not Implemented')
 
 
+def check_permissions(permission, jwt_payload):
+    jwt_has_permissions = 'permissions' in jwt_payload
+    if not jwt_has_permissions or (jwt_has_permissions and permission not in jwt_payload['permissions']):
+        raise AuthError({
+            'code': 'unauthorized',
+            'description': 'you dnn\'t have permissions to view this resource .'
+        }, 401)
+    return True
+
+
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
-            token = get_token_auth_header()
+            token = get_token()
             try:
                 payload = verify_decode_jwt(token)
             except:
@@ -123,6 +145,5 @@ def requires_auth(permission=''):
             check_permissions(permission, payload)
 
             return f(payload, *args, **kwargs)
-
         return wrapper
     return requires_auth_decorator
