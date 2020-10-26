@@ -29,7 +29,7 @@ class Company(db.Model):
     description = Column(String)
     imageBase64 = Column(String)
     state=Column(String)
-    city=(String)
+    city=Column(String)
     job = db.relationship('Job', backref='company', lazy=True)
     candidates = db.relationship('Candidate', backref='company', lazy=True)
 
@@ -124,6 +124,7 @@ class Job(db.Model):
 
 class Candidate(db.Model):
     __tablename__ = 'candidate'
+    
     id = Column(Integer, primary_key=True)
     job_id = Column(db.Integer, db.ForeignKey('job.id'), nullable=False)
     company_id = Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
@@ -151,6 +152,8 @@ class Candidate(db.Model):
     
     def format(self):
         return {
+            'job_id': self.job_id,
+            'company_id': self.company_id,
             'id': self.id,
             'name': self.name,
             'email': self.email,

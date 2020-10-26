@@ -29,7 +29,7 @@ def create_app(test_config=None):
         companies = Company.query.all()
         company_response = [company.format() for company in companies]
         return jsonify({
-            'message': 'success',
+            'success': True,
             'status_code': 200,
             'companies': company_response,
         })
@@ -82,6 +82,14 @@ def create_app(test_config=None):
     @requires_auth('delete:companies')
     def delete_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
+        
+        candidates = Candidate.query.filter_by(company_id=company_id).all()
+        for candidate in candidates:
+            candidate.delete()
+
+        jobs = Job.query.filter_by(company_id=company_id).all()
+        for job in jobs:
+            job.delete()
 
         if company is None:
             abort(404)
@@ -139,6 +147,10 @@ def create_app(test_config=None):
     @requires_auth('update:jobs')
     def update_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
+
+        if job is None:
+            abort(404)
+
         request_value = request.get_json()
 
         job.title = request_value['title']
@@ -162,9 +174,13 @@ def create_app(test_config=None):
     @requires_auth('delete:jobs')
     def delete_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
+        candidates = Candidate.query.filter_by(job_id=job_id).all()
+        for candidate in candidates:
+            candidate.delete()
 
         if job is None:
             abort(404)
+        
         job.delete()
 
         return jsonify({
@@ -204,7 +220,6 @@ def create_app(test_config=None):
         request_value = request.get_json()
         job_id = request_value['job_id']
         company_id = request_value['company_id']
-
         job = Job.query.filter_by(id=job_id).one_or_none()
         if job is None:
             abort(404)
@@ -220,8 +235,9 @@ def create_app(test_config=None):
             request_value['email'],
             request_value['phone']
         )
-
+        
         candidate.insert()
+    
 
         return jsonify({
             'message': 'Your application was successfully sent.',
@@ -250,7 +266,6 @@ def create_app(test_config=None):
 
     @app.errorhandler(AuthError)
     def auth_error(error):
-        print('aaaaaaaaaaaa')
         return jsonify({
             "success": False,
             "error": error.status_code,
