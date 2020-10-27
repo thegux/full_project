@@ -31,6 +31,19 @@ class FullProjectTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
         self.assertEqual(data['companies'], [])
+    
+    def test_create_company(self):
+        company = {"name": 'Simple', "description": 'company', "imageBase64": '', "state": 'Bahia', "city": 'Salvador'}
+        res = self.client().post('/company', json=company)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertEqual(data['name'].get('name'), company['name'])
+        self.assertEqual(data['description'].get('description'), company['description'])
+        self.assertEqual(data['imageBase64'].get('imageBase64'), company['imageBase64'])
+        self.assertEqual(data['state'].get('state'), company['state'])
+        self.assertEqual(data['city'].get('city'), company['city'])
 
 if __name__ == "__main__":
     unittest.main()

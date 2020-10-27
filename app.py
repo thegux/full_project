@@ -35,7 +35,7 @@ def create_app(test_config=None):
         })
 
     @app.route('/company', methods=['POST'])
-    @requires_auth('post:companies')
+    @requires_auth('create:companies')
     def create_company(jwt):
         request_value = request.get_json()
         if request_value is None:
@@ -62,6 +62,8 @@ def create_app(test_config=None):
     def update_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
         request_value = request.get_json()
+        if company is None:
+            abort(404)
 
         company.name = request_value['name']
         company.description = request_value['description']
@@ -116,11 +118,17 @@ def create_app(test_config=None):
         })
 
     @app.route('/job', methods=['POST'])
-    @requires_auth('post:jobs')
+    @requires_auth('create:jobs')
     def create_job(jwt):
         request_value = request.get_json()
 
         if request_value is None:
+            abort(400)
+
+        company_id = request_value['company_id']
+        company = Company.query.filter_by(id=company_id).one_or_none()
+
+        if company is None:
             abort(400)
 
         job = Job(
@@ -131,7 +139,7 @@ def create_app(test_config=None):
             request_value['imageBase64'],
             request_value['is_active'],
             request_value['is_remote'],
-            request_value['company_id']
+            company_id
         )
 
         job.insert()

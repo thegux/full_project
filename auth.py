@@ -124,10 +124,9 @@ def requires_auth(permission=''):
                     'code': 'invalid token',
                     'description': 'Token could not be verified, please try again.'
                 }, 401)
-            try:
-                check_permissions(permission, payload)
-            except Exception as e:
-                print(e)
+            
+            check_permissions(permission, payload)
+         
             return f(payload, *args, **kwargs)
 
         return wrapper

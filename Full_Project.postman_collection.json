@@ -1,0 +1,1544 @@
+{
+	"info": {
+		"_postman_id": "e388b935-8a97-4d56-97e0-16a2f674c294",
+		"name": "Full_Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "Create Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "838fb97a-a9bc-4787-b438-15cffc3fe3c5",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Salvador\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "70874037-269f-425e-b500-26e92ec0c1bd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/companies",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cbbf9413-0291-4bcc-acfc-14b8779e21c1",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Feira de Santana\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91f63fc7-64d0-4d13-aa3b-4037663424e5",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false,\r\n    \"company_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4c4e27c-be56-4236-88dd-4a9295aa5378",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5d31fb3-861a-44f7-ba5b-d66a86035786",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Web Developer\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "48cf40eb-add1-479e-ab59-28a20d425730",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": 1,\r\n    \"company_id\": 1,\r\n    \"name\": \"Gabriel\",\r\n    \"email\": \"gabrielsrbezerra@gmail.com\",\r\n    \"phone\": \"71982993690\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidate/apply",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidate",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Candidates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d5c106c6-5fc6-4df7-8fbf-ac29bea4e240",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidates/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a6cd483-f1f0-4b92-82c9-5a689e11e371",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40f19e98-0c3b-40eb-affb-9535b75a90a9",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HR Assistant",
+			"item": [
+				{
+					"name": "Create Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "42b808c6-2f5a-4fa5-b1fa-e1ddb19d33a8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains company object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.company).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Salvador\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "259d86a7-4be2-4b52-9310-1996876403e0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Value contains companies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.companies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/companies",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66f7c310-dc76-49ac-9672-78991f951366",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains company object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.company).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Feira de Santana\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b3e99db-7f48-4de4-873d-37b951c2dd3d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains job object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.job).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false,\r\n    \"company_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6fade93b-d79d-46ae-910d-721808396836",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Value contains jobs array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.jobs).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcwNDE1LCJleHAiOjE2MDM3Nzc2MTUsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbXX0.YGTUOeGmmoLWQALQFL4HDioSbiBP1_U3FZIlWwzqAm7G4ZoJy7cXidQdrZwFr7zNycLTzhRMStZH4RsfyMW92uz6pdiqxqYoXW0hcelvFdNPnZ7nGAM0WyUj-6aGxLtDyZlAeifkuT_ZFRZYhgRjUB5_MKy05vKtZZRgTVnpWlJ73LAm0FWrcjtw8Pak92Eczs13Qb_68bryPUKfItkrT90ZZEKhx7bdHJ1wiLnWk3pH3Z1A2uEG0fO_4dqFSs6bUbWevIfqhpSw8eELp4N2RYxc2FuR-K3_l9hJ9OJpOv6UnaU091N7WJg4yF8nMnU07OIoGT4bBuFcYXdCIbTIjA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Job ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af33b371-b74b-47e3-be62-52888b6903e1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains job object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.job).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Web Developer\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c48717c5-2233-4e03-ad94-7aa2b58c317b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": 1,\r\n    \"company_id\": 1,\r\n    \"name\": \"Gabriel\",\r\n    \"email\": \"gabrielsrbezerra@gmail.com\",\r\n    \"phone\": \"71982993690\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidate/apply",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidate",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Candidates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8226e378-16cc-49e7-95ba-e5b8a7879a9d",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidates",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "353e45b7-47d0-4a7e-aa0a-8f3d82cb1d4d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "56c2d195-c458-497e-b825-589e72199208",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HR Director",
+			"item": [
+				{
+					"name": "Create Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6ed6c42-4edb-46d6-86b1-df0e0e483f54",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains company object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.company).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{DirectorToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Salvador\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0d08207-992a-464a-8820-900e17362c61",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Value contains companies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.companies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/companies",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a76e39b-81a7-45ce-9bf6-a0fefb47de47",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains company object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.company).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Find Talent\",\r\n    \"description\": \"Texto\",\r\n    \"state\": \"Bahia\",\r\n    \"city\": \"Feira de Santana\",\r\n    \"imageBase64\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26adfafa-d146-4587-bc96-36180b3a82f0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains job object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.job).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false,\r\n    \"company_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "de60a734-f6de-48cc-b38f-7479c3cd4a76",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Value contains jobs array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.jobs).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c831ddfe-4bb9-46a0-9a70-09d280f4c902",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains job object\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.job).to.be.an('object')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Full Stack Web Developer\",\r\n    \"description\": \"Full Stack developer\",\r\n    \"city\": \"Salvador\",\r\n    \"state\": \"Bahia\",\r\n    \"imageBase64\": \"\",\r\n    \"is_active\": true,\r\n    \"is_remote\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2262e253-2401-49b4-acb3-9fca4b5fe417",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5AyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzY1NzExLCJleHAiOjE2MDM3NzI5MTEsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.wt-s8-iEjY6n2hstHv-408h-NpSHNI9FqNyYyD67-A-cVe8wS_yjAxIJ0hXdf444inTyNtsFr_glcT1B45Xp4pynAaBJAYkGnwn4LOw-nzHr1jDCMTVimqSu2fiUkVVqyqRA115VbMqniKxhFhR4X2guRupfGDslNsijRPcSYcOOpLv7B5DUN6bhY8vEBpovWg75FX36JocQiS84WmKfxUBECY8yGjYGprgzoQsr285Cze6iMwCCZXY9AFIcou5Y3TAdcIyR-pu7Uu7jCMv7cIVwXLWHlHM5NDe3zfv4F1p6fMkZvsV4__GW8Ax7oqdoEqH4uQ81QyIV3Mb5ptfXmQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"job_id\": 3,\r\n    \"company_id\": 6,\r\n    \"name\": \"Gabriel\",\r\n    \"email\": \"gabrielsrbezerra@gmail.com\",\r\n    \"phone\": \"71982993690\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidate/apply",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidate",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Candidates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "172b0e0a-988e-439e-a7fe-8e4d41e0810b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Value contains candidates array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.candidates).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/candidates/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"candidates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e4a389a-c494-4d7b-aea6-4a4f69661495",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/job/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40c5d302-325c-436d-8d14-d33789218b9c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/company/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "b3d01290-3547-4eb0-82cd-79683c6d1214",
+			"key": "DirectorToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNjc4MDczLCJleHAiOjE2MDM2ODUyNzMsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.v-1TLz_S_4IxFw7nxPuGiEDD9oVb6jLd-nR1wdlks3nMEeT_u8Z9mnWHv0Ct73-HnpYKoBVVY1cnB9r4y_B5W-EvWzLKEVmemFV2aXaewYCxAZdIYEfJti70a0Ek7Uun9lS6x64fgUZFwHxyLDeWR3NHhaVkGAzdQdAxRraIwDzqDD3oB2JDXaksdDNt9lQGt5qUk5DqgnizvtBSVRtAuxSPHrAXYhjLNsSOys-dYWeVKzQnE52ehfcsVUUSd_sOI0N08HHhl0Frn3HujUNhXkqaluHfroM4pLAfx4aGO6EmfLNAWuZyOTQWmaDWq1ksWGEM3SAv1xEuqVJ3zIn83Q"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
