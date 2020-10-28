@@ -40,15 +40,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company",
-							"protocol": "http",
+							"raw": "{{API}}/company",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company"
 							]
@@ -79,15 +74,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/companies",
-							"protocol": "http",
+							"raw": "{{API}}/companies",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"companies"
 							]
@@ -127,15 +117,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/1",
-							"protocol": "http",
+							"raw": "{{API}}/company/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"1"
@@ -176,15 +161,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job",
-							"protocol": "http",
+							"raw": "{{API}}/job",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job"
 							]
@@ -215,15 +195,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/jobs",
-							"protocol": "http",
+							"raw": "{{API}}/jobs",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"jobs"
 							]
@@ -263,15 +238,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -312,15 +282,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidate/apply",
-							"protocol": "http",
+							"raw": "{{API}}/candidate/apply",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidate",
 								"apply"
@@ -352,15 +317,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidates/1",
-							"protocol": "http",
+							"raw": "{{API}}/candidates/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidates",
 								"1"
@@ -392,15 +352,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -432,15 +387,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/2",
-							"protocol": "http",
+							"raw": "{{API}}/company/2",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"2"
@@ -482,7 +432,12 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -499,15 +454,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company",
-							"protocol": "http",
+							"raw": "{{API}}/company",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company"
 							]
@@ -543,15 +493,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/companies",
-							"protocol": "http",
+							"raw": "{{API}}/companies",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"companies"
 							]
@@ -586,7 +531,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -603,15 +548,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/1",
-							"protocol": "http",
+							"raw": "{{API}}/company/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"1"
@@ -647,7 +587,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -664,15 +604,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job",
-							"protocol": "http",
+							"raw": "{{API}}/job",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job"
 							]
@@ -703,27 +638,15 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcwNDE1LCJleHAiOjE2MDM3Nzc2MTUsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbXX0.YGTUOeGmmoLWQALQFL4HDioSbiBP1_U3FZIlWwzqAm7G4ZoJy7cXidQdrZwFr7zNycLTzhRMStZH4RsfyMW92uz6pdiqxqYoXW0hcelvFdNPnZ7nGAM0WyUj-6aGxLtDyZlAeifkuT_ZFRZYhgRjUB5_MKy05vKtZZRgTVnpWlJ73LAm0FWrcjtw8Pak92Eczs13Qb_68bryPUKfItkrT90ZZEKhx7bdHJ1wiLnWk3pH3Z1A2uEG0fO_4dqFSs6bUbWevIfqhpSw8eELp4N2RYxc2FuR-K3_l9hJ9OJpOv6UnaU091N7WJg4yF8nMnU07OIoGT4bBuFcYXdCIbTIjA",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/jobs",
-							"protocol": "http",
+							"raw": "{{API}}/jobs",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"jobs"
 							]
@@ -758,7 +681,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -775,15 +698,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -810,14 +728,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -831,15 +742,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidate/apply",
-							"protocol": "http",
+							"raw": "{{API}}/candidate/apply",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidate",
 								"apply"
@@ -870,7 +776,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -878,15 +784,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidates",
-							"protocol": "http",
+							"raw": "{{API}}/candidates",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidates"
 							]
@@ -916,7 +817,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -924,15 +825,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -963,7 +859,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzcyMDk4LCJleHAiOjE2MDM3NzkyOTgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.R9nI062Uh83k9fd0BJQ0CbOhtdRBtfuAslxKav8mO4nnHZy09cE6kH2RhiQAe8g_bdEhy9Na8erw_CaBL9O63q7v_xv7pEiGYbWSXHTJjK7oJNrvuisMUcTNuHsUTR9-potc_CzUL4lRjCwFVsGBPNCXn_IvoduNAkNNTvWM3B-rw0vnaE2lxk_0kvGC9l7n5WNSF4T81yUZUhLB3ZnIOMzHNAzvuw1tCFmGNY0NWiTAESuBQKEzso8waCfnDmCdi61-Th7ICpy_LhrF7vIJRE4TAC7fdrnXnblxCk6uN6E2b5nFgtoXms6RgEoXoRBTatCUL2vNU8Dv9brt2VmyAg",
+									"value": "{{assistantToken}}",
 									"type": "string"
 								}
 							]
@@ -971,15 +867,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/1",
-							"protocol": "http",
+							"raw": "{{API}}/company/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"1"
@@ -1021,7 +912,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								},
 								{
@@ -1043,15 +934,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company",
-							"protocol": "http",
+							"raw": "{{API}}/company",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company"
 							]
@@ -1087,15 +973,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/companies",
-							"protocol": "http",
+							"raw": "{{API}}/companies",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"companies"
 							]
@@ -1130,7 +1011,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1147,15 +1028,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/1",
-							"protocol": "http",
+							"raw": "{{API}}/company/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"1"
@@ -1191,7 +1067,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1208,15 +1084,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job",
-							"protocol": "http",
+							"raw": "{{API}}/job",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job"
 							]
@@ -1249,15 +1120,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/jobs",
-							"protocol": "http",
+							"raw": "{{API}}/jobs",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"jobs"
 							]
@@ -1292,7 +1158,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1309,15 +1175,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -1345,14 +1206,7 @@
 					],
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5AyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzY1NzExLCJleHAiOjE2MDM3NzI5MTEsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.wt-s8-iEjY6n2hstHv-408h-NpSHNI9FqNyYyD67-A-cVe8wS_yjAxIJ0hXdf444inTyNtsFr_glcT1B45Xp4pynAaBJAYkGnwn4LOw-nzHr1jDCMTVimqSu2fiUkVVqyqRA115VbMqniKxhFhR4X2guRupfGDslNsijRPcSYcOOpLv7B5DUN6bhY8vEBpovWg75FX36JocQiS84WmKfxUBECY8yGjYGprgzoQsr285Cze6iMwCCZXY9AFIcou5Y3TAdcIyR-pu7Uu7jCMv7cIVwXLWHlHM5NDe3zfv4F1p6fMkZvsV4__GW8Ax7oqdoEqH4uQ81QyIV3Mb5ptfXmQ",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -1366,15 +1220,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidate/apply",
-							"protocol": "http",
+							"raw": "{{API}}/candidate/apply",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidate",
 								"apply"
@@ -1410,7 +1259,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1418,15 +1267,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/candidates/1",
-							"protocol": "http",
+							"raw": "{{API}}/candidates/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"candidates",
 								"1"
@@ -1457,7 +1301,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1465,15 +1309,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/job/1",
-							"protocol": "http",
+							"raw": "{{API}}/job/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"job",
 								"1"
@@ -1504,7 +1343,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNzczMTg4LCJleHAiOjE2MDM3ODAzODgsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.NFQvCFacffcdwH-dQtQ-6TJvPqbFYYdnWcrU7uiGmm0uzZvirZrZ6WzHua5dHryAiWcBTx3IoMDX9KkzWH6770aHRCrGnWegGq9UJSWGSpNuLCNCS260-H_onuqqHo0--DXdVmgdxAkoUCW1LNirhh8rToN9awCaJjBUzsUHKkDmGk1SE61GqeZ-Kz5g8ySetFguKsibsAhR-y_Pmalqg99TiozhAkHqL66CmJmZIe797cPeAo73NYsn6SDOozfzt5jihyEe5bmLdRY08suGa82RYQ421O4IMRSh10wb039uMd0Pru9fRHHsrg33tSTjfUCO1XW-TwEPlozQ6DVl5A",
+									"value": "{{directorToken}}",
 									"type": "string"
 								}
 							]
@@ -1512,15 +1351,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/company/1",
-							"protocol": "http",
+							"raw": "{{API}}/company/1",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{API}}"
 							],
-							"port": "5000",
 							"path": [
 								"company",
 								"1"
@@ -1535,7 +1369,7 @@
 	],
 	"variable": [
 		{
-			"id": "b3d01290-3547-4eb0-82cd-79683c6d1214",
+			"id": "c94e3086-6615-42bb-a61c-3307f0c354a4",
 			"key": "DirectorToken",
 			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjAzNjc4MDczLCJleHAiOjE2MDM2ODUyNzMsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.v-1TLz_S_4IxFw7nxPuGiEDD9oVb6jLd-nR1wdlks3nMEeT_u8Z9mnWHv0Ct73-HnpYKoBVVY1cnB9r4y_B5W-EvWzLKEVmemFV2aXaewYCxAZdIYEfJti70a0Ek7Uun9lS6x64fgUZFwHxyLDeWR3NHhaVkGAzdQdAxRraIwDzqDD3oB2JDXaksdDNt9lQGt5qUk5DqgnizvtBSVRtAuxSPHrAXYhjLNsSOys-dYWeVKzQnE52ehfcsVUUSd_sOI0N08HHhl0Frn3HujUNhXkqaluHfroM4pLAfx4aGO6EmfLNAWuZyOTQWmaDWq1ksWGEM3SAv1xEuqVJ3zIn83Q"
 		}
