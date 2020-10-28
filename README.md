@@ -1,5 +1,7 @@
 # Full Stack Capstone
 
+This is an API for a Human Resources department. It allows specific users to create companies, add job applications to existing companies and common users to apply to these jobs. It was developed as an assessment of the Udacity Nanodegree program. 
+
 ## Getting Started
 
 ### Pre-requisites
