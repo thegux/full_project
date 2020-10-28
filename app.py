@@ -24,6 +24,9 @@ def create_app(test_config=None):
     Company's section
     """
 
+    """
+        Get all companies registered
+    """
     @app.route('/companies')
     def get_companies():
         companies = Company.query.all()
@@ -34,6 +37,9 @@ def create_app(test_config=None):
             'companies': company_response,
         })
 
+    """
+        Allows logged users to create companies
+    """
     @app.route('/company', methods=['POST'])
     @requires_auth('create:companies')
     def create_company(jwt):
@@ -57,6 +63,9 @@ def create_app(test_config=None):
             'success': True,
         })
 
+    """
+        Allows logged users to update existing companies
+    """
     @app.route('/company/<int:company_id>', methods=['PATCH'])
     @requires_auth('update:companies')
     def update_company(jwt, company_id):
@@ -80,6 +89,9 @@ def create_app(test_config=None):
             'success': True,
         })
 
+    """
+        Allows logged users to delete existing companies
+    """
     @app.route('/company/<int:company_id>', methods=['DELETE'])
     @requires_auth('delete:companies')
     def delete_company(jwt, company_id):
@@ -106,7 +118,10 @@ def create_app(test_config=None):
     """
         Job's section
     """
-
+    
+    """
+        Gets all registered jobs
+    """
     @app.route('/jobs')
     def get_jobs():
         jobs = Job.query.all()
@@ -117,6 +132,9 @@ def create_app(test_config=None):
             'jobs': jobs_response,
         })
 
+    """
+        Allows logged users to create jobs for existing companies
+    """
     @app.route('/job', methods=['POST'])
     @requires_auth('create:jobs')
     def create_job(jwt):
@@ -150,7 +168,10 @@ def create_app(test_config=None):
             'message': 'The job was successfully created',
             'success': True,
         })
-
+    
+    """
+        Allows logged users to update existing jobs
+    """
     @app.route('/job/<int:job_id>', methods=['PATCH'])
     @requires_auth('update:jobs')
     def update_job(jwt, job_id):
@@ -178,6 +199,9 @@ def create_app(test_config=None):
             'success': True,
         })
 
+    """
+        Allows logged users to delete existing jobs
+    """
     @app.route('/job/<int:job_id>', methods=['DELETE'])
     @requires_auth('delete:jobs')
     def delete_job(jwt, job_id):
@@ -199,18 +223,10 @@ def create_app(test_config=None):
     """
         Candidate's section
     """
-    @app.route('/candidates')
-    @requires_auth('get:candidates')
-    def get_candidates(jwt):
-        candidates = Candidate.query.all()
-        candidates_response = [candidate.format() for candidate in candidates]
-
-        return jsonify({
-            'message': 'success',
-            'status_code': 200,
-            'candidates': candidates_response,
-        })
-
+        
+    """
+        Allows directors users to see candidates
+    """
     @app.route('/candidates/<int:job_id>')
     @requires_auth('get:job_candidates')
     def get_candidates_by_job(jwt, job_id):
@@ -222,7 +238,10 @@ def create_app(test_config=None):
             'status_code': 200,
             'candidates': candidates_response,
         })
-
+    
+    """
+        Adds a candidate to an specific job application
+    """
     @app.route('/candidate/apply', methods=['POST'])
     def apply_job():
         request_value = request.get_json()
@@ -251,9 +270,10 @@ def create_app(test_config=None):
             'message': 'Your application was successfully sent.',
             'status_code': 200,
         })
-        '''
-    Example error handling for unprocessable entity
-    '''
+    
+    """
+        Error handlers
+    """
     @app.errorhandler(400)
     def bad_request(error):
         return jsonify({
