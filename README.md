@@ -45,16 +45,16 @@ This API handles the following errors:
 
 ### Endpoints
 There are 10 endpoints in this Application:
-    1. GET/COMPANIES
-    2. GET/JOBS
-    3. POST/COMPANY
-    4. POST/JOB
-    5. PATCH/COMPANY/COMPANY_ID
-    6. PATCH/JOB/JOB_ID
-    7. DELETE/COMPANY/COMPANY_ID
-    8. DELETE/JOB/JOB_ID
-    9. GET/CANDIDATES/JOB_ID
-    10. POST/CANDIDATE/APPLY
+  1. GET/COMPANIES
+  2. GET/JOBS
+  3. POST/COMPANY
+  4. POST/JOB
+  5. PATCH/COMPANY/COMPANY_ID
+  6. PATCH/JOB/JOB_ID
+  7. DELETE/COMPANY/COMPANY_ID
+  8. DELETE/JOB/JOB_ID
+  9. GET/CANDIDATES/JOB_ID
+  10. POST/CANDIDATE/APPLY
     
 You can test them and check the documentation specific for each endpoint by using the postman collection located at the src folder.
 In case you run into errors while testing, make sure you're using valid company and job ids. 
