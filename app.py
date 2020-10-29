@@ -13,7 +13,7 @@ def create_app(test_config=None):
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
     ITEMS_PER_PAGE = 10
-    
+
     @app.after_request
     def after_request(response):
         response.headers.add('Access-Control-Allow-Headers',
@@ -34,10 +34,10 @@ def create_app(test_config=None):
         companies = Company.query.all()
         company_response = [company.format() for company in companies]
         page = request.args.get('page', 1, type=int)
-        
+
         if page < 0:
-          abort(422)
-        
+            abort(422)
+
         start = (page - 1) * ITEMS_PER_PAGE
         end = page * ITEMS_PER_PAGE
 
@@ -92,7 +92,7 @@ def create_app(test_config=None):
     def update_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
         request_value = request.get_json()
-        
+
         if company is None:
             abort(404)
 
@@ -142,6 +142,7 @@ def create_app(test_config=None):
         company.delete()
 
         return jsonify({
+            'success': True,
             'message': 'The Company was successfully deleted',
             'status_code': 200,
         })
@@ -158,10 +159,10 @@ def create_app(test_config=None):
         jobs = Job.query.all()
         jobs_response = [job.format_short() for job in jobs]
         page = request.args.get('page', 1, type=int)
-        
+
         if page < 0:
-          abort(422)
-        
+            abort(422)
+
         start = (page - 1) * ITEMS_PER_PAGE
         end = page * ITEMS_PER_PAGE
 
@@ -256,6 +257,7 @@ def create_app(test_config=None):
         job.delete()
 
         return jsonify({
+            'success': True,
             'message': 'The Job was successfully deleted',
             'status_code': 200,
         })
@@ -273,10 +275,19 @@ def create_app(test_config=None):
         candidates = Candidate.query.filter_by(job_id=job_id).all()
         candidates_response = [candidate.format() for candidate in candidates]
 
+        page = request.args.get('page', 1, type=int)
+
+        if page < 0:
+            abort(422)
+
+        start = (page - 1) * ITEMS_PER_PAGE
+
+        end = page * ITEMS_PER_PAGE
         return jsonify({
             'message': 'success',
+            'success': True,
             'status_code': 200,
-            'candidates': candidates_response,
+            'candidates': candidates_response[start:end],
         })
 
     """
@@ -308,6 +319,7 @@ def create_app(test_config=None):
         return jsonify({
             'message': 'Your application was successfully sent.',
             'status_code': 200,
+            'success': True
         })
 
     """
