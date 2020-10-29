@@ -247,12 +247,13 @@ def create_app(test_config=None):
     @requires_auth('delete:jobs')
     def delete_job(jwt, job_id):
         job = Job.query.filter_by(id=job_id).one_or_none()
+        
+        if job is None:
+            abort(404)
+
         candidates = Candidate.query.filter_by(job_id=job_id).all()
         for candidate in candidates:
             candidate.delete()
-
-        if job is None:
-            abort(404)
 
         job.delete()
 
