@@ -12,6 +12,8 @@ def create_app(test_config=None):
     setup_db(app)
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+    ITEMS_PER_PAGE = 10
+    
     @app.after_request
     def after_request(response):
         response.headers.add('Access-Control-Allow-Headers',
@@ -31,10 +33,18 @@ def create_app(test_config=None):
     def get_companies():
         companies = Company.query.all()
         company_response = [company.format() for company in companies]
+        page = request.args.get('page', 1, type=int)
+        
+        if page < 0:
+          abort(422)
+        
+        start = (page - 1) * ITEMS_PER_PAGE
+        end = page * ITEMS_PER_PAGE
+
         return jsonify({
             'success': True,
             'status_code': 200,
-            'companies': company_response,
+            'companies': company_response[start:end],
         })
 
     """
@@ -45,6 +55,17 @@ def create_app(test_config=None):
     def create_company(jwt):
         request_value = request.get_json()
         if request_value is None:
+            abort(400)
+
+        properties = ['name', 'description', 'imageBase64', 'state', 'city']
+        for prop in properties:
+            if prop not in request_value:
+                abort(400)
+
+        if request_value['name'] is None:
+            abort(400)
+
+        if request_value['state'] is None or request_value['city'] is None:
             abort(400)
 
         company = Company(
@@ -71,14 +92,24 @@ def create_app(test_config=None):
     def update_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
         request_value = request.get_json()
+        
         if company is None:
             abort(404)
 
-        company.name = request_value['name']
-        company.description = request_value['description']
-        company.city = request_value['city']
-        company.state = request_value['state']
-        company.imageBase64 = request_value['imageBase64']
+        if 'name' in request_value:
+            company.name = request_value['name']
+
+        if 'description' in request_value:
+            company.name = request_value['description']
+
+        if 'imageBase64' in request_value:
+            company.imageBase64 = request_value['imageBase64']
+
+        if 'state' in request_value:
+            company.state = request_value['state']
+
+        if 'city' in request_value:
+            company.city = request_value['city']
 
         company.update()
 
@@ -97,6 +128,9 @@ def create_app(test_config=None):
     def delete_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
 
+        if company is None:
+            abort(404)
+
         candidates = Candidate.query.filter_by(company_id=company_id).all()
         for candidate in candidates:
             candidate.delete()
@@ -104,9 +138,6 @@ def create_app(test_config=None):
         jobs = Job.query.filter_by(company_id=company_id).all()
         for job in jobs:
             job.delete()
-
-        if company is None:
-            abort(404)
 
         company.delete()
 
@@ -126,10 +157,19 @@ def create_app(test_config=None):
     def get_jobs():
         jobs = Job.query.all()
         jobs_response = [job.format_short() for job in jobs]
+        page = request.args.get('page', 1, type=int)
+        
+        if page < 0:
+          abort(422)
+        
+        start = (page - 1) * ITEMS_PER_PAGE
+        end = page * ITEMS_PER_PAGE
+
         return jsonify({
             'message': 'success',
+            'success': True,
             'status_code': 200,
-            'jobs': jobs_response,
+            'jobs': jobs_response[start:end],
         })
 
     """
