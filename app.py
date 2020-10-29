@@ -96,7 +96,7 @@ def create_app(test_config=None):
     @requires_auth('delete:companies')
     def delete_company(jwt, company_id):
         company = Company.query.filter_by(id=company_id).one_or_none()
-        
+
         candidates = Candidate.query.filter_by(company_id=company_id).all()
         for candidate in candidates:
             candidate.delete()
@@ -118,7 +118,7 @@ def create_app(test_config=None):
     """
         Job's section
     """
-    
+
     """
         Gets all registered jobs
     """
@@ -168,7 +168,7 @@ def create_app(test_config=None):
             'message': 'The job was successfully created',
             'success': True,
         })
-    
+
     """
         Allows logged users to update existing jobs
     """
@@ -212,7 +212,7 @@ def create_app(test_config=None):
 
         if job is None:
             abort(404)
-        
+
         job.delete()
 
         return jsonify({
@@ -223,7 +223,7 @@ def create_app(test_config=None):
     """
         Candidate's section
     """
-        
+
     """
         Allows directors users to see candidates
     """
@@ -238,7 +238,7 @@ def create_app(test_config=None):
             'status_code': 200,
             'candidates': candidates_response,
         })
-    
+
     """
         Adds a candidate to an specific job application
     """
@@ -262,15 +262,14 @@ def create_app(test_config=None):
             request_value['email'],
             request_value['phone']
         )
-        
+
         candidate.insert()
-    
 
         return jsonify({
             'message': 'Your application was successfully sent.',
             'status_code': 200,
         })
-    
+
     """
         Error handlers
     """
@@ -282,7 +281,6 @@ def create_app(test_config=None):
             "message": "bad request"
         }), 400
 
-
     @app.errorhandler(422)
     def unprocessable(error):
         return jsonify({
@@ -290,7 +288,6 @@ def create_app(test_config=None):
             "error": 422,
             "message": "unprocessable"
         }), 422
-
 
     @app.errorhandler(AuthError)
     def auth_error(error):
@@ -300,7 +297,6 @@ def create_app(test_config=None):
             "message": error.error['description']
         }), error.status_code
 
-
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({
@@ -308,7 +304,6 @@ def create_app(test_config=None):
             "error": 404,
             "message": "not found"
         }), 404
-
 
     @app.errorhandler(500)
     def server_error(error):

@@ -32,28 +32,35 @@ def get_token_auth_header():
             'description': 'Not Authorized.'
         }, 401)
 
-
     auth_header = request.headers['Authorization']
     header_parts = auth_header.split(' ')
 
     if len(header_parts) != 2:
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token Format'}, 401)
+        raise AuthError({
+            'code': 'invalid token',
+            'description': 'Invalid Token Format'
+        }, 401)
     elif header_parts[0].lower() != 'bearer':
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token Format'}, 401)
+        raise AuthError({
+            'code': 'invalid token',
+            'description': 'Invalid Token Format'
+        }, 401)
 
     return header_parts[1]
 
 
 def check_permissions(permission, payload):
     if 'permissions' not in payload:
-        raise AuthError(
-            {'code': 'invalid token', 'description': 'Invalid Token'}, 400)
+        raise AuthError({
+            'code': 'invalid token',
+            'description': 'Invalid Token'
+        }, 400)
 
     if permission not in payload['permissions']:
-        raise AuthError(
-            {'code': 'not permitted', 'description': 'Not permitted'}, 401)
+        raise AuthError({
+            'code': 'not permitted',
+            'description': 'Not permitted'
+        }, 401)
 
     return True
 
@@ -104,10 +111,12 @@ def verify_decode_jwt(token):
         except Exception:
             raise AuthError({
                 'code': 'invalid_headers',
-                'description': 'Sorry, we were unable to parse the authentication token provided.'
+                'description': 'Sorry, token could not be read.'
             }, 401)
-    raise AuthError({'code': 'invalid_header',
-                     'description': 'Unable to find the appropriate key.'}, 401)
+    raise AuthError({
+        'code': 'invalid_header',
+        'description': 'Unable to find the appropriate key.'
+    }, 401)
 
     raise Exception('Not Implemented')
 
@@ -119,14 +128,14 @@ def requires_auth(permission=''):
             token = get_token_auth_header()
             try:
                 payload = verify_decode_jwt(token)
-            except:
+            except Exception:
                 raise AuthError({
                     'code': 'invalid token',
-                    'description': 'Token could not be verified, please try again.'
+                    'description': 'Token could not be verified.'
                 }, 401)
-            
+
             check_permissions(permission, payload)
-         
+
             return f(payload, *args, **kwargs)
 
         return wrapper
