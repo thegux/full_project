@@ -24,8 +24,13 @@ In order to run this project properly, make sure you have the following installe
       
   
 ## API Reference (Windows Based)
- * This project was intended to run virtually, thus the backend is hosted at the default ```https://https://full-project-udacity.herokuapp.com/```.
+ * This project was intended to run virtually, thus the backend is hosted at the default ```https://full-project-udacity.herokuapp.com/```.
  * Authentication: This application uses Auth0 authentication and permission will be granted as users sign-in.
+   The authentication uses RBAC control, with two roles:
+     1. HR Director
+     2. HR Assistant
+   Both roles have the following permissions: create:jobs, create:companies, update:companies, delete:companies, update:jobs, delete:jobs.
+   The HR Director has an additional permission: get:job_candidates.
 
 ### Error Handling
 The errors in this application are returned as JSON objects in the following format:
