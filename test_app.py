@@ -86,7 +86,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/company',
             json=company,
             headers={
-                'Authorization': 'Bearer {}'.format(ASSISTANT_TOKEN)})
+                'Authorization': ASSISTANT_TOKEN})
 
         data = json.loads(res.data)
         company_data = data['company']
@@ -106,7 +106,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/company',
             json=company,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
         company_data = data['company']
@@ -126,7 +126,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/company',
             json=company,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
 
@@ -143,7 +143,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/company/3',
             json=company,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
         company_data = data['company']
 
@@ -164,7 +164,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/company/10000',
             json=company,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
@@ -182,7 +182,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/job',
             json=job,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
         job_data = data['job']
@@ -205,7 +205,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/job',
             json=job,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
 
@@ -224,7 +224,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/job/2',
             json=job,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
         job_data = data['job']
@@ -247,7 +247,7 @@ class FullProjectTestCase(unittest.TestCase):
             '/job/1000',
             json=job,
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
 
         data = json.loads(res.data)
 
@@ -294,7 +294,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_get_candidates_assistant(self):
         res = self.client().get('/candidates/3', headers={
-            'Authorization': 'Bearer {}'.format(ASSISTANT_TOKEN)})
+            'Authorization': ASSISTANT_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 401)
@@ -302,7 +302,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_get_candidates_director(self):
         res = self.client().get('/candidates/3', headers={
-            'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+            'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -311,7 +311,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_get_candidates_error(self):
         res = self.client().get('/candidates/3?page=-2', headers={
-            'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+            'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
@@ -323,9 +323,9 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_delete_job(self):
         res = self.client().delete(
-            '/job/5',
+            '/job/7',
             headers={
-                'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
+                'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -334,18 +334,16 @@ class FullProjectTestCase(unittest.TestCase):
     def test_delete_job_error(self):
         res = self.client().delete('/job/10000',
                                    headers={
-                                       'Authorization': 'Bearer {}'
-                                       .format(DIRECTOR_TOKEN)})
+                                       'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
         self.assertEqual(data['success'], False)
 
     def test_delete_company(self):
-        res = self.client().delete('/company/12',
+        res = self.client().delete('/company/14',
                                    headers={
-                                       'Authorization': 'Bearer {}'
-                                       .format(DIRECTOR_TOKEN)})
+                                       'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -353,8 +351,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_delete_company_error(self):
         res = self.client().delete('/company/10000', headers={
-            'Authorization': 'Bearer {}'
-            .format(DIRECTOR_TOKEN)})
+            'Authorization': DIRECTOR_TOKEN})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
