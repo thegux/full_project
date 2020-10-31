@@ -9,8 +9,8 @@ from models import Candidate, Job, Company, setup_db
 TEST_DATABASE_URL = os.environ.get('TEST_DATABASE_URL')
 TEST_DATABASE_NAME = os.environ.get('TEST_DATABASE_NAME')
 
-DIRECTOR_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTQxMTg0MjUwNTU0MDgzMzg5MjEiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjA0MDA3MTIzLCJleHAiOjE2MDQwOTM1MjMsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsImdldDpjYW5kaWRhdGVzIiwiZ2V0OmpvYl9jYW5kaWRhdGVzIiwidXBkYXRlOmNvbXBhbmllcyIsInVwZGF0ZTpqb2JzIl19.cjPD2c_5j0140UOJIE1feVxPC21Xu7j-xw94u5-42X0McWBY7cLgVgkFzOXLkng3jdaW98hiLCxE5mpC2BuyBF5O98KH-IhD3cf5oweOCWpZohXuixZ7kjGtyv7-kVCj1M-CSOGRR2617o27tG3YDoEMllfDZ6S6uIfq7JNdK9zWiegxfMe-2v1f9yzdDhEEUgZRyX_-Re2kh5IyzkEnhSHwfRhC1B5CVx3xQxohauFQDS1T4bQ1PoUG-PywUeALdRLl0LZeFKAmLJSSp9GFX_WlNcv4fGgADakG3yJzj_aRL63de212zVGlfCbAP0maQZocjcz7v_c1qt8mncd96w'
-ASSISTANT_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5YOThWeDhaUHZtSjJBbV9hWVRFWCJ9.eyJpc3MiOiJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDI3NDg5ODcxMzE5Mjc4NzM3NzgiLCJhdWQiOlsiZnVsbFByb2plY3QiLCJodHRwczovL3RoZWd1eC51cy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjA0MDA3MDEzLCJleHAiOjE2MDQwOTM0MTMsImF6cCI6IjhBZDhuWDMybWJxMk9XWHRqa0luYWxVOVFCa203TGI4Iiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInBlcm1pc3Npb25zIjpbImNyZWF0ZTpjb21wYW5pZXMiLCJjcmVhdGU6am9icyIsImRlbGV0ZTpjb21wYW5pZXMiLCJkZWxldGU6am9icyIsInVwZGF0ZTpjb21wYW5pZXMiLCJ1cGRhdGU6am9icyJdfQ.x-fuVLvZ-vGwDBWv4UrHmx0yBi_0xN6VvzIz_y5_1yEODas8JAqEt0WwOirTzZkF5z0YcYxe83WoV0H3jJ0X5LTKtrE0_w2N6YX8xt-AAT6oI3FtjiZWUKNXlqNsGg_cqDuXye1Wxo2Z6pqrUvNgACZMHDPh03DnA_J4koAA_B9kpC2a3VJdGu5cruzscpk1dlgRlDKocEQzIJp6aDIg1Gyoq20F9wcB9jOkJ_NsAZ7WiM9eL5sNLtREnRprvC6rTJuhWGIC1XylZm6pNgm-dMrahcgm4mIYYyGB8WGTfLMVzUmknkfDsSWdRGWGUX7Q12_6QWeD3pll0AMsO1OySw'
+DIRECTOR_TOKEN = os.environ.get('DIRECTOR_TOKEN')
+ASSISTANT_TOKEN = os.environ.get('ASSISTANT_TOKEN')
 BAD_TOKEN = 'BAD_TOKEN'
 
 
@@ -39,7 +39,7 @@ class FullProjectTestCase(unittest.TestCase):
     def test_get_companies(self):
         res = self.client().get('/companies')
         data = json.loads(res.data)
-
+        print(data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
         self.assertEqual(type(data['companies']), list)
@@ -54,7 +54,7 @@ class FullProjectTestCase(unittest.TestCase):
     def test_get_jobs(self):
         res = self.client().get('/jobs')
         data = json.loads(res.data)
-
+        print(data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
         self.assertEqual(type(data['jobs']), list)
@@ -140,7 +140,7 @@ class FullProjectTestCase(unittest.TestCase):
             "state": 'Bahia',
             "city": 'Lauro de Freitas'}
         res = self.client().patch(
-            '/company/1',
+            '/company/3',
             json=company,
             headers={
                 'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
@@ -221,7 +221,7 @@ class FullProjectTestCase(unittest.TestCase):
                "imageBase64": '', "state": 'Bahia', "city": 'Salvador',
                'is_remote': False, 'is_active': True, 'company_id': '1'}
         res = self.client().patch(
-            '/job/1',
+            '/job/2',
             json=job,
             headers={
                 'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
@@ -260,8 +260,8 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_apply_job(self):
         candidate = {
-            "company_id": '1',
-            "job_id": '1',
+            "company_id": '3',
+            "job_id": '2',
             "name": 'Gabe',
             "email": 'gabirbezerra@yahoo.com.br',
             "phone": '+5571982993690'}
@@ -275,7 +275,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_apply_job_error(self):
         candidate = {
-            "company_id": '7',
+            "company_id": '1000',
             "job_id": '1000',
             "name": 'Gabe',
             "email": 'gabirbezerra@yahoo.com.br',
@@ -293,7 +293,7 @@ class FullProjectTestCase(unittest.TestCase):
     """
 
     def test_get_candidates_assistant(self):
-        res = self.client().get('/candidates/1', headers={
+        res = self.client().get('/candidates/3', headers={
             'Authorization': 'Bearer {}'.format(ASSISTANT_TOKEN)})
         data = json.loads(res.data)
 
@@ -301,7 +301,7 @@ class FullProjectTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
 
     def test_get_candidates_director(self):
-        res = self.client().get('/candidates/1', headers={
+        res = self.client().get('/candidates/3', headers={
             'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
         data = json.loads(res.data)
 
@@ -310,7 +310,7 @@ class FullProjectTestCase(unittest.TestCase):
         self.assertEqual(type(data['candidates']), list)
 
     def test_get_candidates_error(self):
-        res = self.client().get('/candidates/1?page=-2', headers={
+        res = self.client().get('/candidates/3?page=-2', headers={
             'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
         data = json.loads(res.data)
 
@@ -323,7 +323,7 @@ class FullProjectTestCase(unittest.TestCase):
 
     def test_delete_job(self):
         res = self.client().delete(
-            '/job/1',
+            '/job/5',
             headers={
                 'Authorization': 'Bearer {}'.format(DIRECTOR_TOKEN)})
         data = json.loads(res.data)
@@ -342,7 +342,7 @@ class FullProjectTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
 
     def test_delete_company(self):
-        res = self.client().delete('/company/1',
+        res = self.client().delete('/company/12',
                                    headers={
                                        'Authorization': 'Bearer {}'
                                        .format(DIRECTOR_TOKEN)})
