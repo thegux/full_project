@@ -11,7 +11,6 @@ TEST_DATABASE_NAME = os.environ.get('TEST_DATABASE_NAME')
 
 DIRECTOR_TOKEN = os.environ.get('DIRECTOR_TOKEN')
 ASSISTANT_TOKEN = os.environ.get('ASSISTANT_TOKEN')
-BAD_TOKEN = 'BAD_TOKEN'
 
 
 class FullProjectTestCase(unittest.TestCase):
